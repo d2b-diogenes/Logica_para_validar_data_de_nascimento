@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doguito Petshop | Criar conta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./assets/css/base/base.css">
+    <link rel="stylesheet" href="./assets/css/cadastro.css">
+    <link rel="stylesheet" href="./assets/css/componentes/cartao.css">
+    <link rel="stylesheet" href="./assets/css/componentes/inputs.css">
+    <link rel="stylesheet" href="./assets/css/componentes/botao.css">
+</head>
+<body>
+    <main class="container flex flex--coluna flex--centro">
+        <div class="cadastro-cabecalho">
+            <img src="./assets/img/doguito.svg" alt="Logo Doguito" class="cadastro-cabecalho__logo">
+            <h1 class="cadastro-cabecalho__titulo">PetShop</h1>
+        </div>
+        <section class="cartao">
+            <h2 class="cartao__titulo">Complete seu cadastro</h2>
+            <form action="./cadastro_concluido.html" class="formulario flex flex--coluna">
+                <fieldset>
+                    <legend class="formulario__legenda">Informações básicas</legend>
+                    <div class="input-container">
+                        <input name="nome" id="nome" class="input" type="text" placeholder="Nome" required> <!-- Foi colocado o required para que o preenchimento seja obrigatório-->
+                        <label class="input-label" for="nome">Nome</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="email" id="email" class="input" type="email" placeholder="Email" required> <!--Foi trocado o atributo type de text para email e ao final foi adicionado o required para o que o preenchimento seja obrigatório. A inserção do type como email irá verifiar apenas se a estrutura está correta não se o e-mail é valido. -->
+                        <label class="input-label" for="email">Email</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="senha" id="senha" class="input" type="password" placeholder="Senha" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="A senha deve conter de 6 a 12 caracteres, deve conter pelo menos uma letra maiúscula, um número e não deve conter símbolos" required> <!--Foi trocado o atributo type de text para password e foi adicionado ao final o required para que o preenchimento seja obrigatório. O atributo type passaword irá apenas esconder o que está dentro do campo de senha, ele não irá validar a senha.-->
+                            <!--
+                                O preenchimento desse campo é obrigatório e para determinar essa obrigatoriedade
+                                de preencimento é necessário colocar o atributo 'required'.
+                                Usando Regex para validar a senha.
+                                Dentro do atributo Pattern é colocada a Expressão Regular (Regex), 
+                                que é um padrão, um padrão que a senha terá que seguir.
+                                É necessário ter conhecimento de como escrever um Regex, 
+                                mas há sites que disponibilizam Regex prontas (expressões regulares), como a regexlib.com.
+                                    Analisando a Expressão Regular:
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" 
+                                    O ^ e o $ são símbolos que irão indicar até onde vamos chegar esse padrão.
+                                    Dentro do ^ e o $ tem um conjuntos de regras que são delimitos por parênteses.
+                                    ?= Permite a presença de determinados caracteres
+                                    . Não é permitido quebras de linhas = Enters
+                                    * 1 ou vários (pelo menos um dos caracteres)
+                                    [] é colocado o intervalo dos caracteres que se quer
+                                    [a-z] Caracteres a até z em minúsculo
+                                    [A-Z] Caracteres a até z em minúsculo
+                                    [0-9] Numeral de 0 até 9
+                                    ?! Não é Permitido a presença de determinados caracteres
+                                    [ !@#$%^&*_=+-] Foi colocado quais caracteres que não se quer a presença
+                                Usando o atributo title="" para deixar a mensagem personalizada
+                                Será usado o atributo title para personalizar a menssagem explicando qual
+                                seria o padrão esperado no campo de senha.
+                                Se a pessoa preenche fora do formato esperado, a mensagem é mostrada.                                
+                            -->
+                        <label class="input-label" for="senha">Senha</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="formulario__legenda">Informações pessoais</legend>
+                    <div class="input-container">
+                        <input name="nascimento" id="nascimento" class="input" type="date" placeholder="Data de nascimento" required>
+                            <!--
+                                Ref: Aula 02 - Vídeo 2
+                                O preenchimento desse campo é obrigatório e para determinar essa obrigatoriedade
+                                de preencimento é necessário colocar o atributo 'required'.
+                                Para criar a seguinte máscara  para o campo data, dd/mm/aaaa, é necessário
+                                trocar no atributo type o valor de 'text' para 'date'.
+                                    Ao fazer essa alteração o campo data passa a ter uma máscara de dd/mm/aaaa. 
+                                    Colocando no atributo type o valor date faz com que o campo crie uma 
+                                    máscara que irá adequar a forma do preenchimento ao necessário para o campo,
+                                    garantido um formato válido e correto.
+                                    Além desse adequação, o usuário terá mais facilidade ao preencher o campo, 
+                                    pois o formato já indica como que o usuário terá que preencher e, dependendo
+                                    do navegador irá aparecer ao lado do campo data um calendário. 
+
+                            -->
+                        <label class="input-label" for="nascimento">Data de nascimento</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="cpf" id="cpf" class="input" type="text" placeholder="CPF">
+                        <label class="input-label" for="cpf">CPF</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="formulario__legenda">Endereço</legend>
+                    <div class="input-container">
+                        <input name="cep" id="cep" class="input" type="text" placeholder="CEP">
+                        <label class="input-label" for="cep">CEP</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="logradouro" id="logradouro" class="input" type="text" placeholder="Logradouro">
+                        <label class="input-label" for="logradouro">Logradouro</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="cidade" id="cidade" class="input" type="text" placeholder="Cidade">
+                        <label class="input-label" for="cidade">Cidade</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="estado" id="estado" class="input" type="text" placeholder="Estado">
+                        <label class="input-label" for="estado">Estado</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                </fieldset>
+                <button class="botao">Cadastrar</a>
+            </form>
+        </section>
+    </main>
+    <script src="./js/validacao.js"></script>
+</body>
+</html>
