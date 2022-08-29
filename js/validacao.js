@@ -1,26 +1,6 @@
 
 // Esse arquivo foi criado com Referência à Aula 02 - Vídeo 2
 
-/*PERGUNTAS AO PROFESSOR:
- 1) Por que na documentao do JS:
-    https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener
-    é usado no final do 'addEventListener' o termo 'false'?
-        function load() {
-            var el = document.getElementById("t");
-            el.addEventListener("click", modifyText, false);
-        }
-
-    Qual a função do termo 'false'?
-    Hoje ainda é usado? Eu não vi funções usando.
-    É um caso específico para usar esse termo 'false' no final?
-
-2) Não entendi a funçaõ do 'Event.target'
-    Qual a função do 'Event.target' advento de um '.addEventListener()'
-
-3) Por que na função 'validaDataNascimento' a variável 'mensagem' vem depois da função que muda o seu conteúdo?
-
- * /
-
 // É criada uma constante 'dataNascimento' para receber a Entrada, o Input do formulário.
 const dataNascimento = document.querySelector('#nascimento')
     /*
